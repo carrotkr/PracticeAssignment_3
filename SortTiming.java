@@ -1,5 +1,3 @@
-
-
 import java.util.Random;
 
 /**
@@ -7,7 +5,6 @@ import java.util.Random;
  * A class which manages various sorting algorithms and reports the timing of them.
  * This main class contains some basic code to get started.
  * @author dgbrizan
- *
  */
 public class SortTiming {
 	
@@ -16,7 +13,6 @@ public class SortTiming {
 	protected SortingFactory factory;      // This creates different sorting algorithms.
 	protected String [] algorithms = {"quicksort", "mergesort", "insertionsort", "bubblesort", "selectionsort"}; // Algos to use.
 
-	
 	/**
 	 * Default Constructor
 	 */
@@ -25,7 +21,6 @@ public class SortTiming {
 		createNewArray(10000);
 		factory = new SortingFactory(false);
 	}
-	
 	
 	/**
 	 * Constructor which sets the size of the array
@@ -36,7 +31,6 @@ public class SortTiming {
 		createNewArray(arraySize);
 		factory = new SortingFactory(false); // Do not use a default value for the algorithm name.
 	}
-	
 	
 	/**
 	 * Constructor which sets array size AND uses one of two strategies for populating the array.
@@ -49,7 +43,6 @@ public class SortTiming {
 		factory = new SortingFactory(false); // Do not use a default value for the algorithm name.
 	}
 	
-	
 	/**
 	 * Sets the array and populates it according to the population strategy.
 	 * @param size
@@ -59,7 +52,6 @@ public class SortTiming {
 		populateArray();
 	}
 	
-	
 	/**
 	 * Changes the size of the array.
 	 * @param newSize
@@ -67,7 +59,6 @@ public class SortTiming {
 	public void changeArraySize(int newSize) {
 		createNewArray(newSize);
 	}
-	
 	
 	/**
 	 * Populates the array according to the variable "populationStrategy," defaulting to "random."
@@ -79,7 +70,6 @@ public class SortTiming {
 		// else
 		populateArrayRandomly();
 	}
-	
 	
 	/**
 	 * Populates the array so that the values are sorted order (increasing).
@@ -93,7 +83,6 @@ public class SortTiming {
 		}
 	}
 	
-	
 	/**
 	 * Populates the array with random values.
 	 */
@@ -103,7 +92,6 @@ public class SortTiming {
 			arr[i] = r.nextInt();
 		}
 	}
-	
 	
 	/**
 	 * Checks whether the array is sorted.
@@ -117,7 +105,6 @@ public class SortTiming {
 		return true;
 	}
 	
-	
 	/**
 	 * Prints the array size and whether sorted or not.
 	 */
@@ -128,7 +115,6 @@ public class SortTiming {
 		else
 			System.out.println("not sorted.");
 	}
-	
 	
 	/**
 	 * Prints the array size and whether sorted or not.
@@ -142,7 +128,6 @@ public class SortTiming {
 			System.out.println("not sorted.");
 	}
 	
-	
 	/**
 	 * Makes a copy of the array. This helps to compare sorting algorithms.
 	 * @return a copy of the internal array.
@@ -152,7 +137,6 @@ public class SortTiming {
 		System.arraycopy(arr, 0, copy, 0, arr.length);
 		return copy;
 	}
-	
 	
 	/**
 	 * Iterates over the array variable "algorithms", instantiates each and determines the timing.
@@ -183,18 +167,17 @@ public class SortTiming {
 		}
 	}
 
-	
 	/**
 	 * main: try 10 different array sizes; make
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
 		SortTiming timing = new SortTiming();
-		int [] sizes = {50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000};
+		int[] sizes = {50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000};
 		
 		for (int size : sizes) {
 			timing.changeArraySize(size);
+
 			// timing.printStatus();
 			timing.printSortingTiming();
 		}
