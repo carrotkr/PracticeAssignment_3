@@ -1,11 +1,14 @@
-
-
+/**
+ * SortingFactory
+ */
 public class SortingFactory {
 
-	public final String defaultAlgorithm = "QuickSort";  // If an improper algorithm name is given, which should be used?
-	public boolean useDefault = false;   // ... and should it be done?
+	// If an improper algorithm name is given, which should be used?
+	public final String defaultAlgorithm = "QuickSort";
 
-	
+	// ... and should it be done?
+	public boolean useDefault = false;
+
 	/**
 	 * Constructor
 	 * @param returnDefault
@@ -14,7 +17,6 @@ public class SortingFactory {
 		// If the client does not provide a proper algorithm name: use the default, or return an error?
 		useDefault = returnDefault;
 	}
-	
 	
 	/**
 	 * Gets a SortingAlgorithm instance according to the parameter.
@@ -44,11 +46,9 @@ public class SortingFactory {
 		if (useDefault) {
 			System.out.println("Invalid algorithm name " + algoName + ". Returning " + defaultAlgorithm);
 			return getSortingAlgorithm(defaultAlgorithm);
-		}
-		else {
+		} else {
 			throw new Exception("Invalid algorithm name specified");
 		}
 	}
-
 
 }
