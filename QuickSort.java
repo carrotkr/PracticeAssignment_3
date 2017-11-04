@@ -2,7 +2,16 @@
  * QuickSort
  */
 public class QuickSort implements SortingAlgorithm {
-
+	public static void exchangeValue(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+	
+	public static boolean findLessValue(int x, int y) {
+		return x < y;
+	}
+	
 	@Override
 	public void sort(int[] a) {
 		sort(a, 0, (a.length - 1));
@@ -26,13 +35,13 @@ public class QuickSort implements SortingAlgorithm {
 		int partitionItem = a[low];
 		
 		while (true) {
-			while (SortingAlgorithm.findLessValue(a[++i], partitionItem)) {
+			while (findLessValue(a[++i], partitionItem)) {
 				if (i == high) {
 					break;
 				}
 			}
 			
-			while (SortingAlgorithm.findLessValue(partitionItem, a[--j])) {
+			while (findLessValue(partitionItem, a[--j])) {
 				if (j == low) {
 					break;
 				}
@@ -42,10 +51,10 @@ public class QuickSort implements SortingAlgorithm {
 				break;
 			}
 			
-			SortingAlgorithm.exchangeValue(a, i, j);
+			exchangeValue(a, i, j);
 		}
 		
-		SortingAlgorithm.exchangeValue(a, low, j);
+		exchangeValue(a, low, j);
 		
 		return j;
 	}
